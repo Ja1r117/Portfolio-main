@@ -1,0 +1,141 @@
+/* ─── about.css — About / Bio section styles ─── */
+
+/* ─── Layout ─────────────────────────────────── */
+#about .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* ─── Text Side ──────────────────────────────── */
+.about-text .about-intro {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--clr-muted);
+  line-height: 1.8;
+  margin-top: 1.5rem;
+}
+
+.about-text .about-intro strong {
+  color: var(--clr-text);
+  font-weight: 600;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+/* ─── Skills List ────────────────────────────── */
+.skills-list {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--clr-muted);
+  transition: color var(--transition);
+}
+
+.skill-item::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  flex-shrink: 0;
+}
+
+.skill-item:hover {
+  color: var(--clr-text);
+}
+
+/* ─── Image Side ─────────────────────────────── */
+.about-visual {
+  position: relative;
+}
+
+.about-img-wrap {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--clr-border);
+}
+
+.about-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.about-img-wrap:hover img {
+  transform: scale(1.04);
+}
+
+/* Decorative corner accent */
+.about-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, transparent 60%, rgba(200,255,87,0.08));
+  pointer-events: none;
+}
+
+.about-tag {
+  position: absolute;
+  bottom: -1.25rem;
+  right: -1.25rem;
+  background: var(--clr-accent);
+  color: #000;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+/* ─── Stats Row ──────────────────────────────── */
+.about-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--clr-border);
+}
+
+.stat-item .stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--clr-accent);
+  line-height: 1;
+}
+
+.stat-item .stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--clr-muted);
+  margin-top: 0.3rem;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 900px) {
+  #about .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about-visual { max-width: 400px; }
+  .about-tag { right: 0; }
+}
